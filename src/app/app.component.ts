@@ -30,6 +30,7 @@ export class AppComponent implements  OnInit {
 				this.imagePath = data.image
 			},(err)=>{
 				console.log(err);
+				this.errormsg = "Server connection error";
 			});
 		}
 	}
