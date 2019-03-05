@@ -1,0 +1,60 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- <div style="text-align:center">
+  <h3>
+    {{ title }}!
+  </h3>
+</div>
+<div style="text-align:center">
+  <ul>
+    <div style="text-align:center">
+        <input type="text" [(ngModel)]="text"/>
+        <br>
+        <small class="error">{{errormsg}}</small>
+        <br><br>
+        <button (click)="generate()">Generate</button>
+    </div>
+  </ul>
+  <ul>
+    <div *ngIf="imagePath"><img [src]="'data:image/jpg;base64,'+imagePath"/></div>
+    <div>
+      <button *ngIf="imagePath" (click)="downloadFile()">Download</button>
+    </div>
+  </ul>
+</div> -->
+<!------------ In Angular material UI -------->
+
+<mat-toolbar  color="primary">
+  <mat-toolbar-row>
+    <span> {{ title }}!</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<main>
+  <mat-card style="text-align:center">
+    <mat-card-header>
+      <mat-card-title>Generate Card</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Enter text" type="text" [(ngModel)]="text"/>
+        </mat-form-field>  
+        <br>
+        <mat-error><small class="error">{{errormsg}}</small></mat-error>    
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="generate()" color="primary">Generate</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card style="text-align:center"  *ngIf="imagePath">
+    <mat-card-header>
+      <mat-card-title>Download Card</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <img [src]="'data:image/jpg;base64,'+imagePath"/>
+    </mat-card-content>
+    <mat-card-actions>
+       <button mat-raised-button *ngIf="imagePath" (click)="downloadFile()" color="primary">Download</button>
+    </mat-card-actions>
+  </mat-card>  
+
+</main>
