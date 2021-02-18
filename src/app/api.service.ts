@@ -1,19 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from  'rxjs';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
   
-  //url = "https://repo-qrcode.herokuapp.com/qrcode/generate";
-  //https://repo-qrcode.herokuapp.com/qrcode/generate
+  url = "https://repo-qrcode.herokuapp.com/qrcode/generate";
 
   constructor(private http: HttpClient) { }
 
   getqrcode(text) : Observable<any> {
-  	let data  = { text: text };
-  	return this.http.post("https://repo-qrcode.herokuapp.com/qrcode/generate", data);
+    let data  = { text: text };
+    const headers = new Headers;
+    headers.append('Access-Control-Allow-Origin', '*');
+  	return this.http.post(this.url, data, { headers: headers });
   }
 }
