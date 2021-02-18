@@ -7,7 +7,7 @@ import { Observable } from  'rxjs';
 })
 export class ApiService {
   
-  url = "http://localhost:5050/qrcode/generate";
+  url = "https://repo-qrcode.herokuapp.com/qrcode/generate";
 
   constructor(private http: HttpClient) { }
 
