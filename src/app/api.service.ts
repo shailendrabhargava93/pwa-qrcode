@@ -7,12 +7,13 @@ import { Observable } from  'rxjs';
 })
 export class ApiService {
   
-  url = "https://repo-qrcode.herokuapp.com/qrcode/generate";
+  //url = "https://repo-qrcode.herokuapp.com/qrcode/generate";
+  //https://repo-qrcode.herokuapp.com/qrcode/generate
 
   constructor(private http: HttpClient) { }
 
   getqrcode(text) : Observable<any> {
   	let data  = { text: text };
-  	return this.http.post(this.url, data);
+  	return this.http.post("https://repo-qrcode.herokuapp.com/qrcode/generate", data);
   }
 }
