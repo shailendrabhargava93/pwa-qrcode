@@ -14,8 +14,8 @@ export class ApiService {
 
   getqrcode(text) : Observable<any> {
     let data  = { text: text };
-    const headers = new Headers;
-    headers.append('Access-Control-Allow-Origin', '*');
-  	return this.http.post(this.url, data, { headers: headers });
+    let header = new HttpHeaders();
+    header.set('Access-Control-Allow-Origin', '*');
+  	return this.http.post(this.url, data, { headers: header });
   }
 }
